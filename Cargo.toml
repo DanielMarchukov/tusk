@@ -1,0 +1,51 @@
+[package]
+name = "tusk"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.93"
+authors = ["Danielius Marciukovas"]
+description = "ITCH 5.0 parser and L3 order book reconstructor"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/DanielMarchukov/tusk"
+keywords = ["itch", "nasdaq", "orderbook", "hft", "trading"]
+categories = ["finance", "parser-implementations"]
+
+[lib]
+name = "tusk"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tusk"
+path = "src/main.rs"
+
+[dependencies]
+thiserror = "2"
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+
+[dev-dependencies]
+criterion = { version = "0.8", features = ["html_reports"] }
+proptest = "1"
+
+[[bench]]
+name = "parser"
+harness = false
+
+[[bench]]
+name = "book"
+harness = false
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+[profile.bench]
+lto = "thin"
+codegen-units = 1
+
+[lints.rust]
+unsafe_code = "warn"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
