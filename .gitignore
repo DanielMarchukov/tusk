@@ -18,3 +18,16 @@ target
 
 # Local notes and system design drafts
 project-management/
+
+# ITCH data files
+*.gz
+*.ITCH50
+*.ITCH50.gz
+
+# Perf and profiling artifacts
+perf.data
+perf.data.old
+*.svg
+
+# Taskwarrior local data
+.task/
