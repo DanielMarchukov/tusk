@@ -1,0 +1,4 @@
+# nextest configuration. The `ci` profile emits a JUnit report consumed by
+# codecov/test-results-action in the CI Test job.
+[profile.ci.junit]
+path = "junit.xml"
